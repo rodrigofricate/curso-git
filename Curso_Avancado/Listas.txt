@@ -1,0 +1,58 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Security.Cryptography.X509Certificates;
+
+namespace Curso_Avancado
+{
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            List<string> listaS = new List<string>();
+
+            listaS.Add("Ana");
+            listaS.Add("Rodrigo");
+            listaS.Insert(1, "Eva");
+            listaS.Add("Among");
+
+
+
+            foreach (string objList in listaS)
+            {
+                Console.WriteLine(objList);
+            }
+            //Contar Elementos
+            Console.WriteLine("O numero de elementos na lsita é:" + listaS.Count);
+            // procurar elementos
+            string s1 = listaS.Find(x => x[0] == 'A');
+            Console.WriteLine("O primeiro nome com A é: " + s1);
+            //Buscar index ou posição
+            int pos1 = listaS.FindIndex(x => x[0] == 'A');
+            Console.WriteLine("Posição 1 = " + pos1);
+            int pos2 = listaS.FindLastIndex(x => x[0] == 'E');
+            Console.WriteLine("Posição 2 = " + pos2);
+            Console.WriteLine("--------------------------");
+            //Comando para filtrar
+            List<string> lista2 = listaS.FindAll(x => x.Length > 3);
+            foreach (string objList in lista2)
+            {
+                Console.WriteLine(objList);
+            }
+            //Remover
+            Console.WriteLine("--------------------------");
+            listaS.Remove("Among");
+            foreach (string objList in listaS)
+            {
+                Console.WriteLine(objList);
+            }
+            //RemoveALL
+            Console.WriteLine("--------------------------");
+            listaS.RemoveAll(x => x.Length>3);
+            foreach (string objList in listaS)
+            {
+                Console.WriteLine(objList);
+            }
+
+        }//Main
